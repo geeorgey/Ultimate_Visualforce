@@ -1,0 +1,76 @@
+<apex:page controller="Ultimate_Visualforce" standardStylesheets="false" showHeader="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0" readOnly="true" cache="false">
+  <apex:includeScript value="//code.jquery.com/jquery-3.3.1.slim.min.js" />
+  <apex:includeScript value="//cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.17.8/js/jquery.tablesorter.min.js" />
+  <apex:includeScript value="https://www.gstatic.com/charts/loader.js" />
+
+    <apex:form id="filters">
+        <apex:actionFunction name="callAex" action="{!getVariable1}" reRender="select2_id,outblock" >
+            <apex:param name="s_variable1" value="s_variable1" />
+            <apex:param name="s_variable2" value="s_variable2" />
+        </apex:actionFunction>
+	
+        <select name="select1" id="select1" class="slds-select" style="width:8em;" onchange="getApexVariables()">
+            <option value=""></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+        </select>
+        
+        <apex:outputText value="{!select2}" escape="false" id="select2_id" />
+
+
+
+    </apex:form>
+
+    <apex:outputText value="{!outputtextblock}" id="outblock" />
+<script type="text/javascript">
+
+
+	function getApexVariables(){
+        let select1_List = document.getElementById('{!$Component.filters}').select1;
+        let select1_num = select1_List.selectedIndex;
+        let p_variable1 = select1_List.options[select1_num].value;
+        
+        let p_variable2 = '';
+        let select2_List = document.getElementById('{!$Component.filters}').select2;
+		if (select2_List!== void 0){
+            let select2_num = select2_List.selectedIndex;
+            p_variable2 = select2_List.options[select2_num].value;
+        }
+
+        callAex(p_variable1,p_variable2);
+
+        window.history.pushState(null, null, '/apex/Ultimate_Visualforce?p_variable1=' + p_variable1 + '&p_variable2=' + p_variable2);
+    }
+
+	window.onload = function() {
+        //パラメータを取得する
+        var params = getParameter();
+
+        if(params['select1value']!==""){
+            $("#select1").val(params['p_variable1']);
+        }
+        if(params['select2value']!==""){
+            $("#select2").val(params['p_variable2']);
+        }
+    }
+    function getParameter(){
+        var paramsArray = [];
+        var url = location.href; 
+        parameters = url.split("#");
+        if( parameters.length > 1 ) {
+            url = parameters[0];
+        }
+        parameters = url.split("?");
+        if( parameters.length > 1 ) {
+            var params = parameters[1].split("&");
+            for ( i = 0; i < params.length; i++ ) {
+                var paramItem = params[i].split("=");
+                paramsArray[paramItem[0]] = paramItem[1];
+            }
+        }
+        return paramsArray;
+    };     
+
+</script>    
+    
+</apex:page>
