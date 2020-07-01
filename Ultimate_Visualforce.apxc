@@ -11,7 +11,7 @@ public class Ultimate_Visualforce {
         p_variable2 = ApexPages.CurrentPage().getParameters().get('p_variable2');
         if(p_variable1 != NULL){
             getVariable1();
-            outputtextblock = '変数1が入ってます | ';
+            outputtextblock = '変数1に ' + p_variable1 + ' が入ってます | ';
         }else{
             outputtextblock = '変数1が入ってません | '; 
         }
@@ -27,7 +27,7 @@ public class Ultimate_Visualforce {
             variable1 = p_variable1;
         }
         if(variable1 !=NULL && variable1 != ''){
-            outputtextblock = '変数1が入ってます | ';
+            outputtextblock = '変数1に ' + variable1 + ' が入ってます | ';
         }else{
             outputtextblock = '変数1が入ってません | ';            
         }
@@ -50,16 +50,16 @@ public class Ultimate_Visualforce {
         if(variable1 == '1'){
             if(v2 == 'select2_1'){
                 select2_StringList.add('<option value="select2_1" selected>select2_1</option>');
-                select2_StringList.add('<option value="select2_2">select2_1</option>');            
+                select2_StringList.add('<option value="select2_2">select2_2</option>');            
             }else if(v2 == 'select2_2'){
                 select2_StringList.add('<option value="select2_1">select2_1</option>');
-                select2_StringList.add('<option value="select2_2" selected>select2_1</option>');            
+                select2_StringList.add('<option value="select2_2" selected>select2_2</option>');            
             }else{
                 select2_StringList.add('<option value="select2_1">select2_1</option>');
-                select2_StringList.add('<option value="select2_2">select2_1</option>');            
+                select2_StringList.add('<option value="select2_2">select2_2</option>');            
             }
             if(variable2 !=NULL && variable2 !='' && variable2 !='select2_3' && variable2 !='select2_4' ){
-                outputtextblock += ' 変数2が入ってます';
+                outputtextblock += ' 変数2に' + v2 + 'が入ってます';
             }else{
                 outputtextblock += ' 変数2が入ってません';            
             }
@@ -75,7 +75,7 @@ public class Ultimate_Visualforce {
                 select2_StringList.add('<option value="select2_4">select2_4</option>');                                                           
             }
             if(variable2 !=NULL && variable2 !='' && variable2 !='select2_1' && variable2 !='select2_2' ){
-                outputtextblock += ' 変数2が入ってます';
+                outputtextblock += ' 変数2に' + v2 + 'が入ってます';
             }else{
                 outputtextblock += ' 変数2が入ってません';            
             }
