@@ -1,0 +1,147 @@
+@isTest
+public class Ultimate_Visualforce_TEST {
+	@isTest
+	static void testMethod0() {
+		PageReference pageRef = Page.Ultimate_Visualforce;
+        pageRef.getParameters().put('p_variable1', '');
+        pageRef.getParameters().put('p_variable2', '');
+		Test.setCurrentPage(pageRef);
+        Test.startTest();
+	        Ultimate_Visualforce extController = new Ultimate_Visualforce();
+            extController.getVariable1();        
+        Test.stopTest();
+    }
+    @isTest
+	static void testMethod1() {
+		PageReference pageRef = Page.Ultimate_Visualforce;
+        pageRef.getParameters().put('p_variable1', '1');
+        pageRef.getParameters().put('p_variable2', '');
+		Test.setCurrentPage(pageRef);
+        Test.startTest();
+	        Ultimate_Visualforce extController = new Ultimate_Visualforce();
+            extController.getVariable1();        
+        Test.stopTest();
+    }
+	@isTest
+	static void testMethod2() {
+		PageReference pageRef = Page.Ultimate_Visualforce;
+        pageRef.getParameters().put('p_variable1', '2');
+        pageRef.getParameters().put('p_variable2', '');
+		Test.setCurrentPage(pageRef);
+        Test.startTest();
+	        Ultimate_Visualforce extController = new Ultimate_Visualforce();
+            extController.getVariable1();        
+        Test.stopTest();
+    }
+	@isTest
+	static void testMethod1_1() {
+		PageReference pageRef = Page.Ultimate_Visualforce;
+        pageRef.getParameters().put('p_variable1', '1');
+        pageRef.getParameters().put('p_variable2', '1');
+		Test.setCurrentPage(pageRef);
+        Test.startTest();
+	        Ultimate_Visualforce extController = new Ultimate_Visualforce();
+            extController.getVariable1();        
+        Test.stopTest();
+    }
+	@isTest
+	static void testMethod1_2() {
+		PageReference pageRef = Page.Ultimate_Visualforce;
+        pageRef.getParameters().put('p_variable1', '1');
+        pageRef.getParameters().put('p_variable2', '2');
+		Test.setCurrentPage(pageRef);
+        Test.startTest();
+	        Ultimate_Visualforce extController = new Ultimate_Visualforce();
+            extController.getVariable1();        
+        Test.stopTest();
+    }
+	@isTest
+	static void testMethod2_1() {
+		PageReference pageRef = Page.Ultimate_Visualforce;
+        pageRef.getParameters().put('p_variable1', '2');
+        pageRef.getParameters().put('p_variable2', '1');
+		Test.setCurrentPage(pageRef);
+        Test.startTest();
+	        Ultimate_Visualforce extController = new Ultimate_Visualforce();
+            extController.getVariable1();        
+        Test.stopTest();
+    }
+	@isTest
+	static void testMethod2_2() {
+		PageReference pageRef = Page.Ultimate_Visualforce;
+        pageRef.getParameters().put('p_variable1', '2');
+        pageRef.getParameters().put('p_variable2', '2');
+		Test.setCurrentPage(pageRef);
+        Test.startTest();
+	        Ultimate_Visualforce extController = new Ultimate_Visualforce();
+            extController.getVariable1();        
+        Test.stopTest();
+    }
+
+    @isTest
+	static void testMethods1() {
+		PageReference pageRef = Page.Ultimate_Visualforce;
+        pageRef.getParameters().put('s_variable1', '1');
+        pageRef.getParameters().put('s_variable2', '');
+		Test.setCurrentPage(pageRef);
+        Test.startTest();
+	        Ultimate_Visualforce extController = new Ultimate_Visualforce();
+            extController.getVariable1();        
+        Test.stopTest();
+    }
+	@isTest
+	static void testMethods2() {
+		PageReference pageRef = Page.Ultimate_Visualforce;
+        pageRef.getParameters().put('s_variable1', '2');
+        pageRef.getParameters().put('s_variable2', '');
+		Test.setCurrentPage(pageRef);
+        Test.startTest();
+	        Ultimate_Visualforce extController = new Ultimate_Visualforce();
+            extController.getVariable1();        
+        Test.stopTest();
+    }
+	@isTest
+	static void testMethods1_1() {
+		PageReference pageRef = Page.Ultimate_Visualforce;
+        pageRef.getParameters().put('s_variable1', '1');
+        pageRef.getParameters().put('s_variable2', '1');
+		Test.setCurrentPage(pageRef);
+        Test.startTest();
+	        Ultimate_Visualforce extController = new Ultimate_Visualforce();
+            extController.getVariable1();        
+        Test.stopTest();
+    }
+	@isTest
+	static void testMethods1_2() {
+		PageReference pageRef = Page.Ultimate_Visualforce;
+        pageRef.getParameters().put('s_variable1', '1');
+        pageRef.getParameters().put('s_variable2', '2');
+		Test.setCurrentPage(pageRef);
+        Test.startTest();
+	        Ultimate_Visualforce extController = new Ultimate_Visualforce();
+            extController.getVariable1();        
+        Test.stopTest();
+    }
+	@isTest
+	static void testMethods2_1() {
+		PageReference pageRef = Page.Ultimate_Visualforce;
+        pageRef.getParameters().put('s_variable1', '2');
+        pageRef.getParameters().put('s_variable2', '1');
+		Test.setCurrentPage(pageRef);
+        Test.startTest();
+	        Ultimate_Visualforce extController = new Ultimate_Visualforce();
+            extController.getVariable1();        
+        Test.stopTest();
+    }
+	@isTest
+	static void testMethods2_2() {
+		PageReference pageRef = Page.Ultimate_Visualforce;
+        pageRef.getParameters().put('s_variable1', '2');
+        pageRef.getParameters().put('s_variable2', '2');
+		Test.setCurrentPage(pageRef);
+        Test.startTest();
+	        Ultimate_Visualforce extController = new Ultimate_Visualforce();
+            extController.getVariable1();        
+        Test.stopTest();
+    }
+}
