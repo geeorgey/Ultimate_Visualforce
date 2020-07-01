@@ -1,0 +1,88 @@
+public class Ultimate_Visualforce {
+    public String p_variable1{get;set;}
+    public String s_variable1{get;set;}
+    public String p_variable2{get;set;}
+    public String s_variable2{get;set;}
+    public String variable2{get;set;}
+    public String select2{get;set;}
+    public String outputtextblock{get;set;}
+    public Ultimate_Visualforce() {
+        p_variable1 = ApexPages.CurrentPage().getParameters().get('p_variable1');
+        p_variable2 = ApexPages.CurrentPage().getParameters().get('p_variable2');
+        if(p_variable1 != NULL){
+            getVariable1();
+            outputtextblock = '変数1が入ってます | ';
+        }else{
+            outputtextblock = '変数1が入ってません | '; 
+        }
+
+    }
+    public Pagereference getVariable1(){
+        s_variable1 = ApexPages.CurrentPage().getParameters().get('s_variable1');
+        p_variable1 = ApexPages.CurrentPage().getParameters().get('p_variable1');
+        String variable1;
+        if(s_variable1 !=NULL){
+            variable1 = s_variable1;
+        }else{
+            variable1 = p_variable1;
+        }
+        if(variable1 !=NULL && variable1 != ''){
+            outputtextblock = '変数1が入ってます | ';
+        }else{
+            outputtextblock = '変数1が入ってません | ';            
+        }
+        s_variable2 = ApexPages.CurrentPage().getParameters().get('s_variable2');
+        p_variable2 = ApexPages.CurrentPage().getParameters().get('p_variable2');
+        if(s_variable2 !=NULL){
+            variable2 = s_variable2;
+        }else{
+            variable2 = p_variable2;
+        }
+
+        system.debug('variable1: ' + variable1 + ' s_variable1: ' + s_variable1 + ' p_variable1: ' +p_variable1);
+        system.debug('variable2: ' + variable2 + ' s_variable2: ' + s_variable2 + ' p_variable2: ' +p_variable2);
+  
+        LIST<String>select2_StringList = new LIST<String>();
+        select2_StringList.add('<select name="select2" id="select2" onchange="getApexVariables()">');
+        select2_StringList.add('<option value="">Choose something</option>');
+        String v2 = variable2;
+        system.debug('v2 : ' + v2);
+        if(variable1 == '1'){
+            if(v2 == 'select2_1'){
+                select2_StringList.add('<option value="select2_1" selected>select2_1</option>');
+                select2_StringList.add('<option value="select2_2">select2_1</option>');            
+            }else if(v2 == 'select2_2'){
+                select2_StringList.add('<option value="select2_1">select2_1</option>');
+                select2_StringList.add('<option value="select2_2" selected>select2_1</option>');            
+            }else{
+                select2_StringList.add('<option value="select2_1">select2_1</option>');
+                select2_StringList.add('<option value="select2_2">select2_1</option>');            
+            }
+            if(variable2 !=NULL && variable2 !='' && variable2 !='select2_3' && variable2 !='select2_4' ){
+                outputtextblock += ' 変数2が入ってます';
+            }else{
+                outputtextblock += ' 変数2が入ってません';            
+            }
+        }else if(variable1 == '2'){
+            if(v2 == 'select2_3'){
+                select2_StringList.add('<option value="select2_3" selected>select2_3</option>');
+                select2_StringList.add('<option value="select2_4">select2_4</option>');                           
+            }else if(v2 == 'select2_4'){
+                select2_StringList.add('<option value="select2_3">select2_3</option>');
+                select2_StringList.add('<option value="select2_4" selected>select2_4</option>');                                           
+            }else{
+                select2_StringList.add('<option value="select2_3">select2_3</option>');
+                select2_StringList.add('<option value="select2_4">select2_4</option>');                                                           
+            }
+            if(variable2 !=NULL && variable2 !='' && variable2 !='select2_1' && variable2 !='select2_2' ){
+                outputtextblock += ' 変数2が入ってます';
+            }else{
+                outputtextblock += ' 変数2が入ってません';            
+            }
+        }
+        select2_StringList.add('</select>');
+        select2 = String.join(select2_StringList,'\n');
+        return Null;
+    }
+    
+}
